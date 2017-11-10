@@ -12,8 +12,7 @@
         var scene;
         var renderer;
         var camera;
-
-
+        var tree;
 
 		if (!window.altspace || !window.altspace.inClient) {
             console.log("YYY");
@@ -37,7 +36,7 @@
 			color: 0x00ff00
 		});
 		var cube = new THREE.Mesh(geometry, material);
-		//scene.add(cube);
+		scene.add(cube);
 
         camera.position.z = 300;
 
@@ -52,7 +51,7 @@
             function ( obj ) {
                 //add the loaded object to the scene
                 obj.scale.set(40,40,40);
-                cube = obj;
+                tree = obj;
                 scene.add( obj );
             },
 
@@ -72,7 +71,7 @@
 			requestAnimationFrame(render);
 
 			//cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
+			tree.rotation.y += 0.01;
 
             if (!window.altspace || !window.altspace.inClient) {
 			    renderer.render(scene, camera);
