@@ -4,38 +4,68 @@
 		<meta charset=utf-8>
 		<title>My first Three.js app in Altspace</title>
 		<script src="https://cdn.rawgit.com/mrdoob/three.js/r84/build/three.js"></script>
-		<script src="../dist/altspace.js"></script>
+		<!--script src="../dist/altspace.js"></script-->
 	</head>
 	<body>
 		<script>
-		if (!window.altspace || !window.altspace.inClient) {
-			document.write('<h3>To view this example, please open this page in <a href="http://altvr.com"> AltspaceVR </a></h3>');
-		}
 
-		var scene = new THREE.Scene();
-		var renderer = altspace.getThreeJSRenderer({version:'0.2.0'});
+        var scene;
+        var renderer;
+        var camera;
+
+
+
+		if (!window.altspace || !window.altspace.inClient) {
+            console.log("YYY");
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+		}
+        else
+        {
+            scene = new THREE.Scene();
+            renderer = altspace.getThreeJSRenderer({version:'0.2.0'});
+            console.log("XXX");
+        }
+
 
 		var geometry = new THREE.BoxGeometry(200, 200, 200);
 		var material = new THREE.MeshBasicMaterial({
 			color: 0x00ff00
 		});
 		var cube = new THREE.Mesh(geometry, material);
-		scene.add(cube);
+		//scene.add(cube);
 
-        var loader = new THREE.FileLoader();
-        loader.load( 'scene-3.json', function ( text ) {
+        camera.position.z = 300;
 
-            var player = new APP.Player();
-            player.load( JSON.parse( text ) );
-            player.setSize( window.innerWidth, window.innerHeight );
-            player.play();
+        var loader = new THREE.ObjectLoader();
 
-            document.body.appendChild( player.dom );
+        loader.load(
+            // resource URL
+            "scene-3.json",
 
-            window.addEventListener( 'resize', function () {
-                player.setSize( window.innerWidth, window.innerHeight );
-            } );
-        } );
+            // pass the loaded data to the onLoad function.
+        //Here it is assumed to be an object
+            function ( obj ) {
+                //add the loaded object to the scene
+                obj.scale.set(40,40,40);
+                cube = obj;
+                scene.add( obj );
+            },
+
+            // Function called when download progresses
+            function ( xhr ) {
+                console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+            },
+
+            // Function called when download errors
+            function ( xhr ) {
+                console.error( 'An error happened' );
+            }
+        );
 
 		//Update & Rendering
 		function render() {
@@ -44,7 +74,13 @@
 			//cube.rotation.x += 0.01;
 			cube.rotation.y += 0.01;
 
-			renderer.render(scene);
+            if (!window.altspace || !window.altspace.inClient) {
+			    renderer.render(scene, camera);
+            }
+            else
+            {
+                renderer.render(scene);
+            }
 		}
 		render();
 		</script>
