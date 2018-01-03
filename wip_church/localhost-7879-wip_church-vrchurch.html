@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="utf-8" />
+    <title>Models</title>
+    <meta name="description" content="Models — A-Frame" />
+
+<script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.6.1/dist/altspace.min.js"></script>
+<script src="https://aframe.io/releases/0.3.0/aframe-inspector.min.js"></script></head>
+
+  
+  <body class="a-body aframe-inspector-opened" data-gr-c-s-loaded="true">
+    <a-scene altspace="fullspace: true" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" vr-mode-ui="">
+
+
+ <a-assets>
+
+        <a-asset-item id="chair-mtl" src="chair.mtl"></a-asset-item>
+        <a-asset-item id="chair-obj" src="chair.obj"></a-asset-item>
+        <a-asset-item id="stage-mtl" src="stage.mtl"></a-asset-item>
+        <a-asset-item id="stage-obj" src="stage.obj"></a-asset-item>
+        <a-asset-item id="vail-mtl" src="vail.mtl"></a-asset-item>
+        <a-asset-item id="vail-obj" src="vail.obj"></a-asset-item>
+        <a-asset-item id="wall-mtl" src="wall.mtl"></a-asset-item>
+        <a-asset-item id="wall-obj" src="wall.obj"></a-asset-item>
+        <a-asset-item id="redcarpet-mtl" src="redcarpet.mtl"></a-asset-item>
+        <a-asset-item id="redcarpet-obj" src="redcarpet.obj"></a-asset-item>
+        <a-asset-item id="tree-mtl" src="tree.mtl"></a-asset-item>
+        <a-asset-item id="tree-obj" src="tree.obj"></a-asset-item>
+        <a-asset-item id="tree2-mtl" src="xmastree2.mtl"></a-asset-item>
+        <a-asset-item id="tree2-obj" src="xmastree2.obj"></a-asset-item>
+        <a-asset-item id="tree3-mtl" src="xmastree2.mtl"></a-asset-item>
+        <a-asset-item id="tree3-obj" src="xmastree3.obj"></a-asset-item>
+        <a-asset-item id="tree4-mtl" src="Christmas-tree.mtl"></a-asset-item>
+        <a-asset-item id="tree4-obj" src="Christmas-tree.obj"></a-asset-item>
+        <a-asset-item id="tree5-mtl" src="xmastree5.mtl"></a-asset-item>
+        <a-asset-item id="tree5-obj" src="xmastree5.obj"></a-asset-item>
+        <a-asset-item id="treetrunk-obj" src="treetrunk3.obj"></a-asset-item>
+        <a-asset-item id="treetrunk-mtl" src="treetrunk3.mtl"></a-asset-item>
+        <a-asset-item id="testsign-obj" src="testsign.obj"></a-asset-item>
+        <a-asset-item id="testsign-mtl" src="testsign.mtl"></a-asset-item>
+
+
+        <img id="sky" src="sky.jpg" />
+        <img id="graund" src="sougen.jpg" />
+        <img id="sign" src="sign.jpg" />
+
+
+
+</a-assets>
+<a-sky src="#sky" radius="500" position="0 0 0" material="" geometry="" scale="" rotation="" visible=""></a-sky>
+
+
+<!-- grass field  -->
+<a-plane material="shader: flat; src: #graund ; repeat:400 400 " height="1000" width="1000" position="0 0 0" rotation="-90 0 90" altspace-cursor-collider="enabled: false" geometry="" scale="" visible=""></a-plane>
+
+
+<!-- trees  -->
+<a-obj-model src="#tree-obj" mtl="#tree-mtl" n-mesh-collider="type: environment; convex: false" position="24 0 -17.71" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<a-obj-model src="#tree-obj" mtl="#tree-mtl" n-mesh-collider="type: environment; convex: false" position="-17.09 0 -17.17" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<!--a-obj-model src="#xmas2-obj" mtl="#xmas2-mtl" n-mesh-collider="type: environment; convex: false" position="15.06 4.24 -0.87" rotation="0 192.2 0" scale="150 150 150"></a-obj-model>
+<a-obj-model src="#tree3-obj" mtl="#tree3-mtl" n-mesh-collider="type: environment; convex: false" position="-6.7 -1 -10.79" rotation="0 0 0" scale="1 1 1"></a-obj-model>  
+<a-obj-model src="#treetrunk-obj" mtl="#treetrunk-mtl" n-mesh-collider="type: environment; convex: false" position="-6.7 0 -10.79" rotation="0 0 0" scale="1 1 1"></a-obj-model>  
+<a-obj-model src="#tree3-obj" mtl="#tree3-mtl" n-mesh-collider="type: environment; convex: false" position="14.43 -1 -10.79" rotation="0 0 0" scale="1 1 1"></a-obj-model>  
+<a-obj-model src="#treetrunk-obj" mtl="#treetrunk-mtl" n-mesh-collider="type: environment; convex: false" position="14.42 0 -10.79" rotation="0 180 0" scale="1 1 1"></a-obj-model-->  
+<!--a-obj-model src="#testsign-obj" mtl="#testsign-mtl" n-mesh-collider="type: environment; convex: false" position="7 4 -9.79" rotation="10 -240 0" scale="7.5 7.5 7.5"></a-obj-model-->  
+<a-obj-model src="#treetrunk-obj" mtl="#treetrunk-mtl" n-mesh-collider="type: environment; convex: false" position="8 0 -10.79" rotation="0 0 0" scale="0.75 0.75 0.75" material="" obj-model="" visible=""></a-obj-model>  
+<a-obj-model src="#treetrunk-obj" mtl="#treetrunk-mtl" n-mesh-collider="type: environment; convex: false" position="8 0 -10.79" rotation="0 0 0" scale="0.75 0.75 0.75" material="" obj-model="" visible=""></a-obj-model>  
+<!--a-obj-model src="#tree4-obj" mtl="#tree4-mtl" n-mesh-collider="type: environment; convex: false" position="0 0 -4" rotation="0 0 0" scale="1 1 1"></a-obj-model-->
+
+
+<!-- Video screen  -->
+<a-entity position="3.54 9.77 -53.28" rotation="0 0 0" scale="15 18.1 15" n-layout-browser="url: https://docs.google.com/presentation/d/1pyplo0_bodkC5IMKXY1a9QLid_k1ApNJ_mNno9cDRbY/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g1f7b477cd5_0_59" visible=""></a-entity>
+<a-plane position="3.54 9.77 -53.28" rotation="0 0 0" scale="15 18.1 15" mixin="image" src="#sign" material="" geometry="" visible=""></a-plane>
+
+
+<!-- church  -->
+<a-entity position="18.36 0 -37.56" rotation="0 -90 0" scale="4 4 4" visible="">
+<a-obj-model src="#chair-obj" mtl="#chair-mtl" n-mesh-collider="type: environment; convex: false" position="0 0 0" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<a-obj-model src="#stage-obj" mtl="#stage-mtl" n-mesh-collider="type: environment; convex: false" position="0 0 0" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<a-obj-model src="#vail-obj" mtl="#vail-mtl" n-mesh-collider="type: environment; convex: false" position="0 0 0" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<a-obj-model src="#wall-obj" mtl="#wall-mtl" n-mesh-collider="type: environment; convex: false" position="0 0 0" rotation="0 0 0" scale="1 1 1" material="" obj-model="" visible=""></a-obj-model>
+<a-obj-model src="#redcarpet-obj" mtl="#redcarpet-mtl" position="0 0 0" rotation="0 0 0" scale="1 1 1" altspace-cursor-collider="enabled: false" material="" obj-model="" visible=""></a-obj-model>
+
+</a-entity>
+<canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="2880" height="1504" style="width: 1440px; height: 752px;"></canvas><a-entity camera="" position="" rotation="" scale="" visible=""></a-entity></a-scene>
+   <script data-prepros-origin-host="localhost" src="http://localhost:7879/__prepros-server__/prepros.js"> </script>
+
+<a style="display: none;"></a></body></html>
